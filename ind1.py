@@ -1,24 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-#   Написать программу, которая считывает текст из файла и определяет, сколько в нем слов,
-#   состоящих из не менее чем семи букв.
+# Вариант 5
+# Написать программу, которая считывает текст из файла и выводит на
+# экран только предложения, не содержащие запятых.
 
 if __name__ == '__main__':
-    with open('text.txt', 'r') as f:
+    with open('ind_1.txt', 'r') as f:
         text = f.read()
-    text = text.replace(".", " ")
-    text = text.replace(",", " ")
-    text = text.replace(";", " ")
-    text = text.replace("!", " ")
-    text = text.replace("?", " ")
-    sentences = text.split(" ")
 
-    for i in text:
-        text.replace(i, ' ')
-    sentences = [i for i in sentences if len(i) > 6]
+    sentences = text.split('.')
+    del sentences[sentences.index('')]
 
-    print(f
-    '{sentences}')
-    print(f
-    'Слов, состоящих из 7 букв: {len(sentences)}')
+    print([sentences for sentences in sentences if not "," in sentences])
